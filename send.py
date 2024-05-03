@@ -21,9 +21,9 @@ class ServerSend:
 
     def server_send(self, text, desp=''):
         postdata = urllib.parse.urlencode({'text': text, 'desp': desp}).encode('utf-8')
-        print(text, desp)
+        # print(text, desp)
         url = f'https://sctapi.ftqq.com/{self.sendkey}.send'
-        print(url)
+        # print(url)
         req = urllib.request.Request(url, data=postdata, method='POST')
         with urllib.request.urlopen(req) as response:
             result = response.read().decode('utf-8')

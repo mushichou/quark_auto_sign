@@ -92,7 +92,7 @@ def main():
     sender.tg_send(chat_id, msg)
     sender_server = send.ServerSend(sever_sendkey)
     result = sender_server.server_send('夸克网盘自动签到', msg)
-    print(result)
+    # print(result)
 
 if __name__ == "__main__":
     main()
