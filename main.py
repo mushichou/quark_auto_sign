@@ -87,8 +87,11 @@ def main():
     print(msg)
     token = os.getenv('TOKEN')
     chat_id = os.getenv('CHAT_ID')
+    sever_sendkey = os.getenv('SEND_KEY')
     sender = send.Send(token)
     sender.tg_send(chat_id, msg)
+    sender_server = send.ServerSend(sever_sendkey)
+    sender_server.server_send(msg)
 
 if __name__ == "__main__":
     main()

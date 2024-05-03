@@ -11,3 +11,12 @@ class Send:
             'text': text
         }
         rq.post(url, data=data)
+        
+class ServerSend:
+    def __init__(self, sendkey):
+        self.sendkey = sendkey
+
+    def server_send(self, text):
+        url = f'https://sctapi.ftqq.com/{self.sendkey}.send?title={'夸克网盘自动签到'}&desp={text}'
+
+        rq.post(url)
