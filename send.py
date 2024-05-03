@@ -17,6 +17,5 @@ class ServerSend:
         self.sendkey = sendkey
 
     def server_send(self, text):
-        url = f'https://sctapi.ftqq.com/{self.sendkey}.send?title={'夸克网盘自动签到'}&desp={text}'
-
+        url = f'https://sctapi.ftqq.com/{self.sendkey}.send?title=夸克网盘自动签到&desp={text}'
         rq.post(url)
