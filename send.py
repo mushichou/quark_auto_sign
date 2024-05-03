@@ -1,4 +1,7 @@
 import requests as rq
+import urllib.parse
+import urllib.request
+import os
 
 class Send:
     def __init__(self, token):
@@ -16,6 +19,10 @@ class ServerSend:
     def __init__(self, sendkey):
         self.sendkey = sendkey
 
-    def server_send(self, text):
-        url = f'https://sctapi.ftqq.com/{self.sendkey}.send?title=夸克网盘自动签到&desp={text}'
-        rq.post(url)
+    def server_send(self, text, desp=''):
+        postdata = urllib.parse.urlencode({'text': text, 'desp': desp}).encode('utf-8')
+        url = f'https://sctapi.ftqq.com/{self.sendkey}.send'
+        req = urllib.request.Request(url, data=postdata, method='POST')
+        with urllib.request.urlopen(req) as response:
+            result = response.read().decode('utf-8')
+        return result
