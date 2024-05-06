@@ -13,6 +13,7 @@ jobs:
     env:
       CHAT_ID: ${{secrets.CHAT_ID}}
       TOKEN: ${{secrets.TOKEN}}
+      SEND_KEY: ${{secrets.SEND_KEY}}
     steps:
       - name: install-python
         uses: actions/checkout@v4
